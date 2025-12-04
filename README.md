@@ -20,7 +20,7 @@
 
 
 <div align="center">
-<img src="docs/adv.png" alt="Overview" width="700">
+<img src="docs/adv.png" alt="Overview" width="350">
 </div>
 
 
