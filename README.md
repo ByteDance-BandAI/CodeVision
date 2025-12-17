@@ -6,21 +6,38 @@
 
 
 <div align="center">
-<a href="https://www.apache.org/licenses/LICENSE-2.0"><img src="https://img.shields.io/badge/license-Apache%202-blue" alt="license"></a>
-<a href="https://arxiv.org/abs/2512.03746" target="_blank"><img src=https://img.shields.io/badge/arXiv-b5212f.svg?logo=arxiv></a>
+<a href="https://www.apache.org/licenses/LICENSE-2.0"><img src="https://img.shields.io/badge/license-Apache%202.0-blue" alt="license"></a>
+<a href="https://arxiv.org/abs/2512.03746" target="_blank"><img src=https://img.shields.io/badge/arXiv-2512.03746-b5212f.svg?logo=arxiv></a>
+<a href="https://github.com/ByteDance-BandAI/CodeVision" target="_blank"><img src=https://img.shields.io/badge/github-Repo-green?logo=github></a>
+<a href="https://huggingface.co/datasets/kkwok/CodeVision-SFT" target="_blank"><img src=https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-SFT-yellow></a>
 </div>
 
 ## Overview
 
-- **Introduction**: A framework leveraging code-as-tool and comprehensive SFT/RL datasets for "thinking with images".
+- **Introduction**: A framework leveraging code-as-tool and comprehensive SFT/RL datasets for "**thinking with images**".
 
-- **Features**: Supports multi-turn agent loops for the Qwen2.5-VL and Qwen3-VL series.
+- **Features**: Supports **multi-turn agent loops** for the **Qwen2.5-VL** and **Qwen3-VL series**.
 
 - **Datasets**: Includes an SFT dataset constructed using GPT-5-High and an RL dataset covering diverse domains.
 
 
 <div align="center">
 <img src="docs/adv.png" alt="Overview" width="350">
+</div>
+
+
+## Cases
+
+These cases show the multi-turn and emergent tool usage of the agent.
+
+### Case 1
+<div align="center">
+<img src="docs/case1.png" alt="Overview" width="500">
+</div>
+
+### Case 2
+<div align="center">
+<img src="docs/case2.png" alt="Overview" width="500">
 </div>
 
 
@@ -56,11 +73,11 @@ pip install -r requirements-runtime.txt
 The construction pipeline of the SFT dataset:
 
 <div align="center">
-<img src="docs/sftdata.png" alt="sftdata" width="500">
+<img src="docs/sftdata.png" alt="sftdata" width="800">
 </div>
 
 
-First, download the [CodeVision-SFT Dataset](https://huggingface.co/datasets/kkwok/CodeVision-SFT) for SFT. We use [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) for our SFT training. Update the config file in [LLaMA-Factory/examples/train_full/qwen2_5vl_full_sft.yaml](LLaMA-Factory/examples/train_full/qwen2_5vl_full_sft.yaml) and [LLaMA-Factory/examples/train_full/qwen3vl.yaml](LLaMA-Factory/examples/train_full/qwen3vl.yaml). Update the data file path in [dataset_info.json](LLaMA-Factory/data/dataset_info.json). Then run the following command to launch the training:
+First, download the [CodeVision-SFT Dataset](https://huggingface.co/datasets/kkwok/CodeVision-SFT) for SFT. We use [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) for our SFT training. Update the config file in [qwen2_5vl_full_sft.yaml](LLaMA-Factory/examples/train_full/qwen2_5vl_full_sft.yaml) and [qwen3vl.yaml](LLaMA-Factory/examples/train_full/qwen3vl.yaml). Update the data file path in [dataset_info.json](LLaMA-Factory/data/dataset_info.json). Then run the following command to launch the training:
 
 ```bash
 cd LLaMA-Factory
