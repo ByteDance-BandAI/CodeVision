@@ -1,0 +1,17 @@
+hydra-core
+tensordict
+numpy
+pytest
+pybind11
+codetiming
+torchdata
+datasets
+peft
+qwen_vl_utils==0.0.14
+mathruler
+pylatexenc
+markdown
+math_verify
+fastapi==0.119.0
+wandb
+ray[default]
