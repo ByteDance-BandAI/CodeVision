@@ -1,0 +1,10 @@
+working_dir: ./
+excludes: ["/.git/", "result/"]
+env_vars:
+  TORCH_NCCL_AVOID_RECORD_STREAMS: "1"
+  HYDRA_FULL_ERROR: "1"
+  PYTORCH_CUDA_ALLOC_CONF: ""
+  BYTEDTRACE: "false"
+  VLLM_USE_V1: "1"
+  VLLM_ALLREDUCE_USE_SYMM_MEM: "0"
+

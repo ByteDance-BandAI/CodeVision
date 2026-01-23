@@ -740,7 +740,11 @@
       "system": "system"
     },
     "tags": {
-      "observation_tag": "tool"
+      "observation_tag": "tool",
+      "assistant_tag": "gpt",
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human"
     }
   }
 }

@@ -1,0 +1,35 @@
+tools:
+  - class_name: "verl.tools.code_image_tool.CodeImageTool"
+    config: 
+      type: native
+      num_workers: 20
+      rate_limit: 50
+      timeout: 1
+      max_code_length: 2048
+      enable_global_rate_limit: true
+    tool_schema:
+      type: "function"
+      function:
+        name: "code_image_tool"
+        description: "A unified tool for image processing using executable Python code. Supports basic operations (zoom in, resize, rotate, flip, brightness, contrast), mathematical visualizations (auxiliary lines, bounding boxes, coordinate systems, function graphs). The 'draw' variable provides drawing capabilities."
+        parameters:
+          type: "object"
+          properties:
+            code:
+              type: "string"
+              description: |
+                Python code to process the image. Use 'image' or 'img' for input, 'draw' for drawing. Important: Do not read image from file or URL, directly use the 'image' or 'img' variable. Return PIL Image object and save the result to 'result' or 'output' variable. Examples:
+                - Zoom in: result = image.crop((x_min, y_min, x_max, y_max))
+                - Rotate: result = image.rotate(90/180/270, expand=True), expand=True must be set to True
+                - Flip: result = image.transpose(Image.FLIP_LEFT_RIGHT) or image.transpose(Image.FLIP_TOP_BOTTOM)
+                - Brightness: result = ImageEnhance.Brightness(image).enhance(factor)
+                - Contrast: result = ImageEnhance.Contrast(image).enhance(factor)
+                You can also use other operations from PIL, NumPy, OpenCV, and math libraries. You should observe the image carefully and determine the best operation to perform. If the image has a wrong direction (usually happens), you should consider flipping or rotating the image to the correct direction before answering the question. Important Hint: Zoom in, Rotate and Flip are the most common operations to solve the question and should be prioritized.
+            description:
+              type: "string"
+              description: "Clear description of what the code does. For example, 'Draw a line from (10, 20) to (30, 40)', 'Flip the image horizontally'"
+            image_index:
+              type: "integer"
+              minimum: 0
+              description: "Index of the image in the trajectory to process (0-based)."
+          required: ["code", "description", "image_index"]
